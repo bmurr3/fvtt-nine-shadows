@@ -6,7 +6,7 @@ import * as Vite from "vite";
 import checker from "vite-plugin-checker";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 import tsconfigPaths from "vite-tsconfig-paths";
-
+import type { PluginOption } from 'vite';
 
 export function getServePorts(defaults = { foundryPort: 30000, serverPort: 30001 }) {
     if (!fs.existsSync('./foundryconfig.json')) { return defaults; }
@@ -21,12 +21,12 @@ export function getServePorts(defaults = { foundryPort: 30000, serverPort: 30001
 export function basePlugins() {
     return [ checker({ typescript: true }), tsconfigPaths({ loose: true }), sveltePlugin() ];
 }
-export function prodPlugins() {
+export function prodPlugins(): PluginOption[] {
     return [
         {
             name: 'minify',
             renderChunk: {
-                order: 'post',
+                order: 'post' as const,
                 async handler(code: any, chunk: any) {
                     if(!chunk.fileName.endsWith('.mjs')) { return code; }
                     return esbuild.transform(code, {
@@ -40,7 +40,7 @@ export function prodPlugins() {
         ...viteStaticCopy({ targets: [] })
     ];
 }
-export function devPlugins(outDir: string) {
+export function devPlugins(outDir: string): PluginOption[] {
     // sourcery skip: avoid-function-declarations-in-blocks
     function copyAndNotify(context: any, { glob, wsEvent }: {glob: string, wsEvent: string}) {
         const base = context.file.slice(context.file.indexOf(glob));
@@ -114,7 +114,17 @@ const config = Vite.defineConfig(({ command, mode }): Vite.UserConfig => {
             }
         },
         plugins,
-        css: { devSourcemap: buildMode === 'development' }
+        css: { devSourcemap: buildMode === 'development' },
+        build: {
+            rollupOptions: {
+                input: 'src/fvttnineshadows.ts', // Specify the entry module
+                output: {
+                    entryFileNames: `fvttnineshadows.mjs`,
+                    chunkFileNames: `chunks/fvttnineshadows-[hash].mjs`,
+                    assetFileNames: `assets/[name].[ext]`,
+                }
+            }
+        }
     };
 });
 
