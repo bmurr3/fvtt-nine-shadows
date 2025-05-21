@@ -28,7 +28,26 @@
         "resolveJsonModule": true,
         "useDefineForClassFields": true,
         "noErrorTruncation": true,
-        "paths": {},
+        "paths": {
+            "@actor": [
+                "src/module/actor/index.ts"
+            ],
+            "@actor/*": [
+                "src/module/actor/*"
+            ],
+            "@module/*": [
+                "src/module/*"
+            ],
+            "@scripts/*": [
+                "src/scripts/*"
+            ],
+            "@util": [
+                "src/util/index.ts"
+            ],
+            "@util/*": [
+                "src/util/*"
+            ]
+        },
         "types": [
             "jest",
             "jquery",
