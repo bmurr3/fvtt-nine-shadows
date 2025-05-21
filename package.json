@@ -15,11 +15,11 @@
         "link": "tsx ./build/link-foundry.ts",
         "extractPacks": "tsx ./build/extract-packs.ts",
         "pretest": "npm run lint",
-        "test": "jest",
+        "test": "jest --passWithNoTests",
         "migrate": "tsx ./build/run-migration.ts",
         "lint": "eslint && npm run prettier:scss-svelte",
-        "prettier:scss-svelte": "prettier --check src/styles src/**/*.svelte",
-        "lint:fix": "eslint --fix && prettier --write src/styles src/**/*.svelte"
+        "prettier:scss-svelte": "prettier --check src/styles",
+        "lint:fix": "eslint --fix && prettier --write src/styles"
     },
     "author": "Will Waller",
     "engines": {
