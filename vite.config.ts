@@ -35,7 +35,7 @@ export function prodPlugins(): PluginOption[] {
                     }
                     return esbuild.transform(code, {
                         keepNames: true,
-                        minifyIndicators: false,
+                        minifyIdentifiers: false,
                         minifySyntax: true,
                         minifyWhitespace: true,
                     });
