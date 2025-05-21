@@ -1,9 +1,23 @@
-**/*.log
-**/CURRENT
-**/LOCK
-**/LOG*
-**/MANIFEST-*
+# IDE
+.idea/
+.vs/
+.vscode/
+icons/\!dox/
 
+coverage
 dist/
-doc/
+docs/
+foundryconfig.json
 node_modules/
+package/
+packs-temp/
+json-assets/
+types/foundry/node_modules/
+types/foundry/package-lock.json
+vite.config.ts.*
+
+# Dummy files for vite dev server
+/index.html
+/styles/fvttns.css
+/fvttnineshadows.mjs
+/vendor.mjs
