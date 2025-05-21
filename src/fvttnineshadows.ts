@@ -1,4 +1,4 @@
-import { HooksNs1 } from "./scripts/hooks";
+import { HooksNs1 } from "@scripts/hooks/index";
 import "./styles/main.scss";
 
 HooksNs1.listen();
