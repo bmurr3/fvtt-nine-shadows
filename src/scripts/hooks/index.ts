@@ -1,4 +1,4 @@
-import { Load } from "./load";
+import { Load } from "./load.ts";
 
 export const HooksNs1 = {
     listen(): void {
