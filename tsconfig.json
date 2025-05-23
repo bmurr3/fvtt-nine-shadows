@@ -41,12 +41,9 @@
             "@scene": [
                 "src/module/scene/"
             ],
-<<<<<<< HEAD
-=======
             "@scene/*": [
                 "src/module/scene/*"
             ],
->>>>>>> 5de962c (Starting actors.)
             "@scripts/*": [
                 "src/scripts/*"
             ],
