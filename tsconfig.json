@@ -38,6 +38,9 @@
             "@module/*": [
                 "src/module/*"
             ],
+            "@scene": [
+                "src/module/scene/"
+            ],
             "@scripts/*": [
                 "src/scripts/*"
             ],
