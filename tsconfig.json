@@ -35,6 +35,15 @@
             "@actor/*": [
                 "src/module/actor/*"
             ],
+            "@item": [
+                "src/module/item"
+            ],
+            "@item/*": [
+                "src/module/item/*"
+            ],
+            "@module": [
+                "src/module/"
+            ],
             "@module/*": [
                 "src/module/*"
             ],
